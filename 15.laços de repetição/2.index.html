@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laços de Repetição</title>
+</head>
+<body>
+    <h1>Laços de Repetição</h1>
+    <p>Os laços de repetição servem para repetir uma ação executando apenas um comando.</p>
+    <p>Exemplo: vou digitar os números de 0 a 5000. Isso demoraria muito, mas podemos utilizar o laço de repetição (<code>for</code>).</p>
+
+    <p id="contagem"></p>
+
+    <h2>Exemplo 2:</h2>
+    <p>Vamos preencher uma caixa de seleção com anos.</p>
+
+    <select id="ano">
+        <option selected disabled>Selecione o ano</option>
+    </select>
+
+    <script>
+        // Exemplo 1 — Contagem de 0 a 5000
+        for (let numero = 0; numero <= 5000; numero++) {
+            document.getElementById("contagem").innerHTML += numero + ", ";
+        }
+
+        // Exemplo 2 — Preencher o select com anos (do ano atual até 1910)
+        let anoAtual = new Date().getFullYear();
+        let selectAno = document.getElementById("ano");
+
+        for (let ano = anoAtual; ano >= 1910; ano--) {
+            let option = document.createElement("option");
+            option.value = ano;
+            option.textContent = ano;
+            selectAno.appendChild(option);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background: linear-gradient(15deg, rgb(25, 90, 44), #ece7e7);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        main {
+            background-color: #5c3232;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(151, 84, 8, 0.4);
+        }
+        h1 {
+            color: #fff;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        input[name="expresso"] {
+            background-color: #a8a4a4;
+            color: #0f0;
+            font-size: 24px;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            text-align: right;
+        }
+        .opitions {
+            display: grid;
+            grid-template-columns: repeat(4, 60px);
+            gap: 10px;
+            justify-content: center;
+        }
+        .opitions span {
+            background-color: #e0e0e0;
+            padding: 15px;
+            font-size: 18px;
+            text-align: center;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            user-select: none;
+            font-weight: bold;
+        }
+        .opitions span:hover {
+            background-color: #d0d0d0;
+            transform: scale(1.05);
+        }
+        .opitions span.limpa {
+            grid-column: span 4;
+            background-color: #4e07f5;
+            color: rgb(238, 122, 122);
+        }
+        .opitions span.limpa:hover {
+            background-color: #632cc9;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Calculadora</h1>
+        <form name="calculadora">
+            <input type="text" name="expresso" readonly />
+            <div class="opitions">
+                <span>/</span>
+                <span>7</span>
+                <span>8</span>
+                <span>9</span>
+                <span>*</span>
+                <span>4</span>
+                <span>5</span>
+                <span>6</span>
+                <span>-</span>
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>+</span>
+                <span>0</span>
+                <span>.</span>
+                <span>=</span>
+                <span class="limpa">C</span>
+            </div>
+        </form>
+    </main>
+
+    <script>
+        const input = document.calculadora.expresso;
+        const botoes = document.querySelectorAll('.opitions span');
+
+        botoes.forEach(botao => {
+            botao.addEventListener('click', () => {
+                const valor = botao.textContent;
+
+                if (valor === 'C') {
+                    input.value = '';
+                } else if (valor === '=') {
+                    try {
+                        // Calcula expressão com segurança
+                        input.value = eval(input.value);
+                    } catch {
+                        input.value = 'Erro';
+                    }
+                } else {
+                    input.value += valor;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

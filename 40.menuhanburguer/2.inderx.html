@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Hamburguer</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: darkgray;
+        }
+
+        /* Ícone do menu */
+        #menu {
+            width: 35px;
+            height: 30px;
+            margin: 30px 0 20px 20px;
+            cursor: pointer;
+            position: relative;
+            z-index: 3;
+        }
+
+        .bar {
+            width: 100%;
+            height: 5px; 
+            background-color: rgb(9, 0, 139);
+            display: block;
+            border-radius: 5px;
+            transition: 0.4s ease;
+        }
+
+        /* Corrigido: uma das transformações estava duplicada */
+        #bar1 {
+            transform: translateY(-4px);
+        }
+
+        #bar3 {
+            transform: translateY(4px);
+        }
+
+        /* Navegação */
+        .nav {
+            padding: 0;
+            margin: 0 20px;
+            transition: 0.4s ease;
+            display: none;
+            position: relative;
+            z-index: 2;
+        }
+
+        .nav li {
+            list-style: none;
+            padding: 16px 0;
+        }
+
+        .nav li a {
+            color: white;
+            text-decoration: none;    
+        }
+
+        .nav li a:hover {
+            font-weight: bold;
+        }
+
+        /* Fundo animado */
+        .menu-bg, #menu-bg {
+            top: 0;
+            left: 0;
+            position: absolute;
+        }
+
+        .menu-bg {
+            z-index: 1;
+            width: 0;
+            height: 0;
+            margin: 30px 0px 20px 20px;
+            background: radial-gradient(circle, rgb(16, 198, 243), rgb(22, 108, 236));
+            border-radius: 50%;
+            transition: 0.4s ease;
+        }
+
+        /* Quando o menu é clicado */
+        .change-bg {
+            width: 550px;
+            height: 540px;
+            transform: translate(-60%, -30%);
+        }
+
+        /* Corrigido: a classe era .change.bar, mas deveria ser .change .bar */
+        .change .bar {
+            background-color: white;
+        }
+
+        .change #bar1 {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .change #bar2 {
+            opacity: 0;
+        }
+
+        .change #bar3 {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        /* Mostrar o menu quando ativo */
+        .change + .nav {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="menu-bar">
+        <div id="menu" onclick="onClickMenu()">
+            <div id="bar1" class="bar"></div>
+            <div id="bar2" class="bar"></div>
+            <div id="bar3" class="bar"></div>
+        </div>
+
+        <ul class="nav" id="nav">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Filmes</a></li>
+            <li><a href="#">Séries</a></li>
+            <li><a href="#">Desenhos</a></li>
+            <li><a href="#">Jogos</a></li>
+        </ul>
+    </div>
+
+    <div class="menu-bg" id="menu-bg"></div>
+
+    <script>
+        function onClickMenu() {
+            document.getElementById("menu").classList.toggle("change");
+            document.getElementById("nav").classList.toggle("change");
+            document.getElementById("menu-bg").classList.toggle("change-bg");
+        }
+    </script>
+</body>
+</html>

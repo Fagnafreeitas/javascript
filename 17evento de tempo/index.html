@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jogo de ordenação</title>
+</head>
+<style>
+    body{
+        font-family: 'poppins', sans-serif;
+        background-color: linear-gradiente(135deg,  #00b4bd, #0083b0);
+        color: #fff;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+
+    }
+     h1{
+        margin-top: 20px;
+        font-size: 2.5em;
+     }
+     #numbers{
+        display:flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: 30px auto;
+        margin: 30px;
+        gap: 10px;
+
+     }
+     .number{
+        width: 70px;
+        height: 70px;
+        background: rgba(red, green, blue, alpha);
+        backdrop-filter: blur(10px);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5em;
+        cursor: pointer;
+        transition: all 0.3s ease;
+     }
+     .number:hover{
+        background: rgba(255, 255, 255, 255);
+        transform: scale(1.1);
+     }
+     #mensagem, #fase, #tempo{
+        font-size: 1.2em;
+        margin: 15px;
+     }
+     button{
+        background-color: #ff5000;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 10px;
+        color: white;
+        font-size: 1em;
+        cursor: pointer;
+        transition: background;
+
+     }
+     button:hover{
+        background: #ffa733;
+     } 
+</style>
+<body>
+    <h1>Eventos de tempo</h1>
+    <p>Os Eventos de tempo permitem a execusão do codigo em interlagos de tempo especificados. </p>
+    <p>Esses intervalos de tempo são chamados de eventos de cronometagem</p>
+    <p>Vamos utilizar dois metodos de contagem de tempo</p>
+    <p>setTimeout(function, tempo em milisegundos)</p>
+    <P> Vai executar a função depois do tempo especificado.</P>
+    <p>serInterval(function, milioseconds)</p>
+    <p>repete a function continumeroint</p>
+    <p>Jogo de ordenação</p>
+    <p>clique nos numeros em ordem crescente antes que o tempo acabe!</p>
+
+    <div id="fase">Fase: 1</div>
+    <div id="tempo">tempo: 10s</div>
+    <div id="numbers"></div>
+
+    <div id="mensagens">
+        <button onclick="iniciarjogo()">Começar jogo</button>
+    </div>
+    <button id="resetar" onclick="resetarJgo()">Reiniciar</button>
+    <script src="script.js"></script>
+    
+</body>
+</html>

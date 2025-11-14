@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="letra"></p>
+    
+    <p id="num"></p>
+
+    <p id="conta"></p><br>
+    <p id="conta1"></p><br>
+    <p id="conta2"></p><br>
+    <p id="conta3"></p><br>
+
+
+
+</body>
+
+</html>
+<script>
+
+
+    const letra = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"];
+    const num = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+
+    document.getElementById("letra").innerHTML = "A matriz que você escolheu foi:   " + (letra)+".";
+
+
+    document.getElementById("conta").innerHTML = "A letra que vocÊ escolheu foi a: " + letra[6] + ".";
+
+    letra.unshift("l", "m");
+    document.getElementById("conta1").innerHTML = "Adicionar dois itens na matriz: " + (letra)+ ".";
+
+    letra.splice(4, 1);
+    document.getElementById("conta2").innerHTML = "Matriz após remover o item 5: " + letra+ ".";
+
+    const juntos = letra.concat(num);
+    document.getElementById("conta3").innerHTML = "Matriz concatenada com outra matriz: " + (juntos)+ ".";
+
+   
+
+
+
+
+
+</script>
