@@ -61,7 +61,7 @@ const aluno = {
     mostrarEndereço: function(){
         console.log(`${this.nome} mora na ${this.endereco.rua}, nº ${this.endereco.numero}`);
     }
-    mostrarEndereço: function(){
+    mostrarNome: function(){
         console.log(`${this.aluno.nome} + ${this.aluno.endereco.rua} + ${this.aluno.endereco.numero}`);
     }
 };
